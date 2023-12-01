@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event bubbling tickling</title>
+    <style>
+        *{
+            color: red;
+            padding: 10px;
+        }
+        div{
+            margin: 25px;
+            padding: 10px;
+        }
+        div ul{
+            margin: 25px;
+            padding: 10px;
+        }
+        div ul li{
+            padding: 10px;
+            margin: 25px;
+        }
+        div ul li input{
+            margin: 25px;
+        }
+    </style>
+</head>
+<body>
+    
+    (great-great-grandparent)
+    <div>
+        (great-grandparent)
+        <ul type="none" id="">
+            (grandparent)
+            <li>
+                (direct-grandparent) <br>
+                <input type="text" id="in" placeholder="span">
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+
+    $(document).ready(function(){
+       $("#in").parentsUntil().css("border","1px solid red") 
+    })
+
+    </script>
+
+</body>
+</html>

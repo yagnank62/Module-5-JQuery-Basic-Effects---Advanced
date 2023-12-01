@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML CSS jQuery Image Slider</title>
+  <style>
+    #slider-container {
+      overflow: hidden;
+      width: 100%;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+
+    #slider {
+      display: flex;
+      width: 300%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .slide img{
+      width: 100%;
+      height: inherit;
+    }
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 20px;
+      color: #fff;
+      background-color: #333;
+      padding: 10px;
+    }
+
+    #prev-btn {
+      left: 0;
+    }
+
+    #next-btn {
+      right: 0;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<div id="slider-container">
+  <div id="slider">
+    <div class="slide"><img src="https://images.hdqwalls.com/wallpapers/bthumb/black-panther-wakanda-forever-2022-5k-mf.jpg" width="400" alt="Image 1"></div>
+    <div class="slide"><img src="https://images.hdqwalls.com/wallpapers/bthumb/jabari-tribe-black-panther-5k-3b.jpg" width="400" alt="Image 2"></div>
+    <div class="slide"><img src="https://images.hdqwalls.com/wallpapers/bthumb/black-panther-the-wakanda-forever-mt.jpg" width="400" alt="Image 3"></div>
+  </div>
+  <div class="slider-btn" id="prev-btn">&lt;</div>
+  <div class="slider-btn" id="next-btn">&gt;</div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    var slideWidth = $('.slide').width();
+    var slideCount = $('.slide').length;
+    var currentIndex = 0;
+
+    $('#slider').css('width', slideWidth * slideCount);
+
+    function nextSlide() {
+      if (currentIndex < slideCount - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateSlider();
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = slideCount - 1;
+      }
+      updateSlider();
+    }
+
+    function updateSlider() {
+      var newPosition = -currentIndex * slideWidth;
+      $('#slider').css('transform', 'translateX(' + newPosition + 'px)');
+    }
+
+    $('#prev-btn').on('click', prevSlide);
+    $('#next-btn').on('click', nextSlide);
+  });
+</script>
+
+</body>
+</html>
+
+

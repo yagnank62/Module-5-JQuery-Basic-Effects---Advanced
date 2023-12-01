@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module-5-Jquery</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            width: 95%;
+            margin: 0 auto;
+            background: url(https://img.freepik.com/free-vector/white-elegant-texture-background-style_23-2148432200.jpg?w=996&t=st=1700158847~exp=1700159447~hmac=7ed185d964da6916ade910217da41f4a6c1b0f27b184a33050f2a798b29c91e6);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+        }
+        details{
+            margin: 25px 0px;
+            padding: 10px 25px;
+            background-color: aliceblue;
+            border: 1px solid skyblue;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        details p{
+            margin-top: 10px;
+        }
+        details summary{
+            margin: 5px 0px;
+            font-size: 22px;
+            word-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <center>
+        <h1>Module (JQuery Basic, Effects & Advanced) – 5</h1>
+    </center>
+
+    <details>
+        <summary>What is jQuery?</summary>
+        <p>jQuery is an open source JavaScript library that simplifies the interactions between an HTML/CSS document, or more precisely the Document Object Model (DOM), and JavaScript.
+            Elaborating the terms, jQuery simplifies HTML document traversing and manipulation, browser event handling, DOM animations, Ajax interactions, and cross-browser JavaScript development.</p>
+            <p>
+                Note: The only library available today that meets the needs of both designer types and programmer types is jQuery. <br>
+
+jQuery is widely famous with its philosophy of “Write less, do more.” This philosophy can be further elaborated as three concepts: <br> <br>
+<ul style="padding-left: 2%;">
+    <li>Finding some elements (via CSS selectors) and doing something with them (via jQuery methods) i.e. locate a set of elements in the DOM, and then do something with that set of elements.</li>
+    <li>Chaining multiple jQuery methods on a set of elements </li>
+    <li>Using the jQuery wrapper and implicit iteration</li>
+</ul>
+</p>
+            <p>
+               <strong> Using jQuery (JS) library on HTML page </strong> <br> <br>
+ There are several ways to start using jQuery on your web site. <br>
+<br>
+<ol style="padding-left: 2%;">
+    <li>Use the Google-hosted/ Microsoft-hosted content delivery network (CDN) to include a version of jQuery.</li>
+    <li>Download own version of jQuery from jQuery.com and host it on own server or local filesystem.</li>
+</ol>
+<br>
+Note: All jQuery methods are inside a document-ready event to prevent any jQuery code from running before the document is finished loading (is ready).
+            </p>
+            <br>
+            <h2>Advantages:</h2>
+            <br>
+                <ul style="padding-left: 2%;">
+                    <li>Wide range of plug-ins. jQuery allows developers to create plug-ins on top of the JavaScript library.</li>
+                    <li>Large development community</li>
+                    <li>It has a good and comprehensive documentation</li>
+                    <li>It is a lot more easy to use compared to standard javascript and other javascript libraries.</li>
+                    <li>JQuery lets users develop Ajax templates with ease, Ajax enables a sleeker interface where actions can be performed on pages without requiring the entire page to be reloaded.</li>
+                    <li>Being Light weight and a powerful chaining capabilities makes jQuery more strong.</li>
+                </ul>
+            <br>
+            <h2>Disadvantages:</h2>
+            <br>
+            <ul style="padding-left: 2%;">
+                <li>While JQuery has an impressive library in terms of quantity, depending on how much customization you require on your website, the functionality may be limited thus using raw javascript may be inevitable in some cases.</li>
+                <li>The JQuery javascript file is required to run JQuery commands, while the size of this file is relatively small (25-100KB depending on the server), it is still a strain on the client computer and maybe your web server as well if you intend to host the JQuery script on your own web server.</li>
+            </ul>
+    </details>
+
+    <details>
+        <summary>How to Apply CSS Using JQuery, How to Add Class and Remove Class in Jquery ,
+            JQuery Animation?</summary>
+            
+            <h2>1. Applying CSS with jQuery:</h2>
+            <p>
+                In this article, we will explore how we can apply CSS styles to HTML elements. It is recommended that you have some basic knowledge of HTML, CSS, JavaScript, and jQuery before beginning this article.
+<br> <br>
+It is possible to change the CSS property of an element by using a simple JavaScript API, but we try to complete this challenge using jQuery css() method.
+            </p>
+            <br>
+            <h2>Syntax:</h2>
+            <br>
+            <div style="background-color: lightgray;padding: 10px;">
+                $().css(propertyname, value); <br>
+                $().css(properties); <br>
+
+                <br>
+                <h2>example</h2>
+                <br>
+                &lt;script&gt; 
+                    let css_property =  <br>
+                    {  <br>
+                        "color": "green",  <br>
+                        "font-size": "20px"  <br>
+                    }  <br>
+                    $('#change').on('click', function () {  <br>
+              
+                        // For multiple css property  <br>
+                        $('#context').css(css_property);  <br>
+                    }); 
+               <br>
+                    $('#change').on('dblclick', function () {  <br>
+                          
+                        // For single css property  <br>
+                        $('#context').css('display', 'none');  <br>
+                    })  <br>
+                &lt;/script&gt; 
+
+            </div>
+            <br>
+            <h2>addClass() method:</h2>
+            <br>
+            <p>addClass() method: It is used to add specified classes to each of the targeted elements while animating all style changes.</p>
+            <br>
+            <h2>Syntax:</h2>
+            <br>
+            <div style="background-color: lightgray;padding: 10px;">
+                .addClass(className, [duration], [easing], [callback])
+            </div>
+            <br>
+            <h2>removeClass() method:</h2>
+            <br>
+            <p>removeClass() method: It is used to remove the classes from the element while animating all style changes.</p>
+            <br>
+            <h2>Syntax:</h2>
+            <br>
+            <div style="background-color: lightgray;padding: 10px;">
+                removeClass(className, [duration], [easing], [callback])
+            </div>
+            <br>
+            <h2>animate() method</h2>
+            <br>
+            <p>
+                The animate() method is an inbuilt method in jQuery which is used to change the state of the element with CSS style. This method can also be used to change the CSS property to create the animated effect for the selected element
+            </p>
+            <br>
+            <h2>Syntax:</h2>
+            <br>
+            <div style="background-color: lightgray;padding: 10px;">
+                (selector).animate({styles}, para1, para2, para3);
+
+                <br>
+                <h2>example</h2>
+                <br>
+
+                &lt;script&gt; <br>
+          
+                    $(document).ready(function () {  <br>
+                        $("#b1").click(function () { <br> 
+                            $("#box").animate({  <br>
+                                width: "300px" <br> 
+                            });  <br>
+                            $("#box").animate({  <br>
+                                height: "300px"  <br>
+                            });  <br>
+                        });  <br>
+                    });  <br>
+
+                &lt;/script&gt; <br>
+
+            </div>
+            <br>
+    </details>
+</body>
+</html>
